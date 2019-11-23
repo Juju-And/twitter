@@ -1,8 +1,9 @@
 from django import forms
-from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
+
+from records.models import Tweet
 
 
-class AddTweetForm(forms.Form):
-    content = forms.CharField(label="Treść tweeta (max 140 znaków)", max_length=140, widget=forms.Textarea)
-
+class TweetForm(forms.ModelForm):
+    class Meta:
+        model = Tweet
+        fields = ['content']

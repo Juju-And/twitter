@@ -18,10 +18,14 @@ from django.urls import path
 from records.views import (MainView,
                            AddTweetView,
                            )
+from users.views import (LoginView,
+                         logoutUser)
 from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', MainView.as_view(), name="index"),
     url(r'^add_tweet', AddTweetView.as_view()),
+    url(r'^login', LoginView.as_view()),
+    url(r'^logout', logoutUser),
 ]
