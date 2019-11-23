@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from records.models import Tweet
 from records.forms import TweetForm
-from django.views.generic import FormView, UpdateView, CreateView
+from django.views.generic import FormView, UpdateView, CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
@@ -29,3 +29,9 @@ class TweetView(View):
     def get(self, request, tweet_id):
         current_tweet = Tweet.objects.get(id=tweet_id)
         return render(request, 'tweet_info.html', {"current_tweet": current_tweet})
+
+
+class UsersTweetsView(View):
+    def get(self, request):
+        tweets = Tweet.objects.filter(user=self.request.user)
+        return render(request, 'users_tweets.html', {"tweets": tweets})

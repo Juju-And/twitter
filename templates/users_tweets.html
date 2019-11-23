@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Twoje tweety</h2>
+
+<table>
+    <tr>
+        <th>Tweet</th>
+        <th>Data dodania</th>
+    </tr>
+    {% for tweet in tweets %}
+    <tr>
+        <td><a href="/tweet/{{ tweet.id }}">{{ tweet.content }}</a></td>
+        <td>{{ tweet.creation_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

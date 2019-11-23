@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from records.views import (MainView,
                            AddTweetView,
-                           TweetView
+                           TweetView,
+                           UsersTweetsView
                            )
 from users.views import (LoginView,
                          logoutUser,
@@ -32,5 +33,6 @@ urlpatterns = [
     url(r'^logout', logoutUser),
     url(r'^create_user', CreateUserView.as_view()),
     url(r'^tweet/(?P<tweet_id>(\d)+)', TweetView.as_view(), name="tweet"),
+    url(r'^users_tweets', UsersTweetsView.as_view()),
 
 ]
