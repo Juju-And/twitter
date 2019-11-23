@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from records.views import (MainView,
+                           AddTweetView,
+                           )
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^$', MainView.as_view(), name="index"),
+    url(r'^add_tweet', AddTweetView.as_view()),
 ]

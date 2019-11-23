@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} Strona główna {% endblock %}
+
+{% block content %}
+<title>Content</title>
+<ul id="menu_list">
+    <li><a href="">Strona główna</a></li>
+    <li><a href="/add_tweet">Nowy tweet</a></li>
+    <li><a href="">Wiadomości</a></li>
+    <li><a href="">Wpisy</a></li>
+</ul>
+
+<h2>Ostatnie tweety</h2>
+<table>
+    <tr>
+        <th>Tweet</th>
+        <th>Autor</th>
+    </tr>
+    {% for tweet in tweets %}
+    <tr>
+        <td>{{ tweet.content }}</td>
+        <td>{{ tweet.user }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<!--<footer>-->
+<!--    {% if username %}-->
+<!--        {{ username }}-->
+<!--    <a href="/logout">Wyloguj</a>-->
+<!--    {% else %}-->
+<!--    <a href="/login">Zaloguj</a>-->
+<!--    {% endif %}-->
+<!--</footer>-->
+{% endblock %}
+
+

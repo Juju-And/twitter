@@ -1,0 +1,13 @@
+#menu_list, #menu_list li {
+    font-size: 30px;
+    text-align: center;
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#menu_list li {
+	display: inline;
+	white-space: nowrap;
+}
