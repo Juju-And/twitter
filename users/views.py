@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views.generic import FormView
-from users.forms import LoginForm
+from users.forms import LoginForm, CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 
 class LoginView(FormView):
@@ -28,5 +29,17 @@ def logoutUser(request):
     return redirect("/")
 
 
-class CreateUser(FormView):
-    pass
+class CreateUserView(FormView):
+    template_name = "create_user.html"
+    form_class = CreateUserForm
+    success_url = "/"
+
+    def form_valid(self, form):
+        User.objects.create_user(
+            username=form.cleaned_data['username'],
+            first_name=form.cleaned_data['first_name'],
+            last_name=form.cleaned_data['last_name'],
+            email=form.cleaned_data['email'],
+            password=form.cleaned_data['password'],
+        )
+        return super().form_valid(form)

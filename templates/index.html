@@ -3,17 +3,7 @@
 {% block title %} Strona główna {% endblock %}
 
 {% block content %}
-<title>Content</title>
-<ul id="menu_list">
-    <li><a href="">Strona główna</a></li>
-    <li><a href="/add_tweet">Nowy tweet</a></li>
-    <li><a href="">Wiadomości</a></li>
-    <li><a href="">Wpisy</a></li>
-    <li><a href="/login">Logowanie</a></li>
-
-</ul>
-
-<h2>Ostatnie tweety</h2>
+<h2>Ostatnio dodane tweety</h2>
 <table>
     <tr>
         <th>Tweet</th>
@@ -21,7 +11,7 @@
     </tr>
     {% for tweet in tweets %}
     <tr>
-        <td>{{ tweet.content }}</td>
+        <td><a href="/tweet/{{ tweet.id }}">{{ tweet.content }}</a></td>
         <td>{{ tweet.user }}</td>
     </tr>
     {% endfor %}

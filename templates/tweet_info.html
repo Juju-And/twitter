@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Informacja o tweecie</h1>
+<ul>
+<li><b>Treść tweeta:</b> {{ current_tweet.content }}</li>
+<li><b>Data dodania:</b> {{ current_tweet.creation_date }}</li>
+<li><b>Autor:</b> {{ current_tweet.user }}</li>
+<ul>
+{% endblock %}

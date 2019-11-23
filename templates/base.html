@@ -10,6 +10,15 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+<ul id="menu_list">
+    <li><a href="/">Strona główna</a></li>
+    <li><a href="/add_tweet">Nowy tweet</a></li>
+    <li><a href="/users_tweets">Moje wpisy</a></li>
+    <li><a href="">Wiadomości</a></li>
+    <li><a href="/logout">Wyloguj</a></li>
+
+</ul>
+<br><br><br>
 {% block content %}
 {% endblock %}
 </body>

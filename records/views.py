@@ -23,3 +23,9 @@ class AddTweetView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+class TweetView(View):
+    def get(self, request, tweet_id):
+        current_tweet = Tweet.objects.get(id=tweet_id)
+        return render(request, 'tweet_info.html', {"current_tweet": current_tweet})
